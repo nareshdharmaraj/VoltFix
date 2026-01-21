@@ -2497,6 +2497,10 @@ footer {
     justify-content: space-between !important;
   }
 
+  .nav-links a i.fa-chevron-down {
+    display: none !important;
+  }
+
   .nav-links div.dropdown {
     width: 100% !important;
     flex-direction: column !important;
