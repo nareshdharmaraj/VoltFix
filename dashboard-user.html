@@ -348,7 +348,7 @@
           <div class="user-card">
             <h3 style="font-weight: 900; margin-bottom: 32px;">Project Historical Logs</h3>
             <div style="overflow-x: auto;">
-              <table style="width: 100%; border-collapse: collapse;">
+              <table class="data-table" style="width: 100%; border-collapse: collapse;">
                 <thead>
                   <tr style="text-align: left; border-bottom: 2px solid var(--border);">
                     <th style="padding: 16px; font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted);">
@@ -363,34 +363,46 @@
                 </thead>
                 <tbody>
                   <tr style="border-bottom: 1px solid var(--border-light);">
-                    <td style="padding: 16px; font-family: monospace; font-size: 0.85rem;">EV-88219</td>
-                    <td style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">2025-12-30
+                    <td data-label="Event ID" style="padding: 16px; font-family: monospace; font-size: 0.85rem;">
+                      EV-88219</td>
+                    <td data-label="Timestamp" style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">
+                      2025-12-30
                       14:22</td>
-                    <td style="padding: 16px; font-weight: 600;">System Calibration</td>
-                    <td style="padding: 16px;"><span style="color: var(--success); font-weight: 700;">Verified</span>
+                    <td data-label="Action Type" style="padding: 16px; font-weight: 600;">System Calibration</td>
+                    <td data-label="Status" style="padding: 16px;"><span
+                        style="color: var(--success); font-weight: 700;">Verified</span>
                     </td>
                   </tr>
                   <tr style="border-bottom: 1px solid var(--border-light);">
-                    <td style="padding: 16px; font-family: monospace; font-size: 0.85rem;">EV-88218</td>
-                    <td style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">2025-12-28
+                    <td data-label="Event ID" style="padding: 16px; font-family: monospace; font-size: 0.85rem;">
+                      EV-88218</td>
+                    <td data-label="Timestamp" style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">
+                      2025-12-28
                       09:15</td>
-                    <td style="padding: 16px; font-weight: 600;">Node Synchronization</td>
-                    <td style="padding: 16px;"><span style="color: var(--success); font-weight: 700;">Verified</span>
+                    <td data-label="Action Type" style="padding: 16px; font-weight: 600;">Node Synchronization</td>
+                    <td data-label="Status" style="padding: 16px;"><span
+                        style="color: var(--success); font-weight: 700;">Verified</span>
                     </td>
                   </tr>
                   <tr style="border-bottom: 1px solid var(--border-light);">
-                    <td style="padding: 16px; font-family: monospace; font-size: 0.85rem;">EV-88217</td>
-                    <td style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">2025-12-24
+                    <td data-label="Event ID" style="padding: 16px; font-family: monospace; font-size: 0.85rem;">
+                      EV-88217</td>
+                    <td data-label="Timestamp" style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">
+                      2025-12-24
                       18:45</td>
-                    <td style="padding: 16px; font-weight: 600;">Standard Review</td>
-                    <td style="padding: 16px;"><span style="color: var(--success); font-weight: 700;">Passed</span></td>
+                    <td data-label="Action Type" style="padding: 16px; font-weight: 600;">Standard Review</td>
+                    <td data-label="Status" style="padding: 16px;"><span
+                        style="color: var(--success); font-weight: 700;">Passed</span></td>
                   </tr>
                   <tr>
-                    <td style="padding: 16px; font-family: monospace; font-size: 0.85rem;">EV-88216</td>
-                    <td style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">2025-12-20
+                    <td data-label="Event ID" style="padding: 16px; font-family: monospace; font-size: 0.85rem;">
+                      EV-88216</td>
+                    <td data-label="Timestamp" style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">
+                      2025-12-20
                       11:30</td>
-                    <td style="padding: 16px; font-weight: 600;">Hardware Initiation</td>
-                    <td style="padding: 16px;"><span style="color: var(--success); font-weight: 700;">Certified</span>
+                    <td data-label="Action Type" style="padding: 16px; font-weight: 600;">Hardware Initiation</td>
+                    <td data-label="Status" style="padding: 16px;"><span
+                        style="color: var(--success); font-weight: 700;">Certified</span>
                     </td>
                   </tr>
                 </tbody>
@@ -454,6 +466,30 @@
             <p style="color: var(--success);">+1.2% this week</p>
           </div>
         </div>
+
+        <!-- New Pie Chart Section -->
+        <div class="user-card" style="margin-top: 24px; height: 400px; position: relative;">
+          <h3 style="font-weight: 900; margin-bottom: 24px;">Energy Composition</h3>
+          <div style="height: 300px; width: 100%; display: flex; justify-content: center;">
+            <canvas id="userPieChart"></canvas>
+          </div>
+        </div>
+
+        <!-- New Detailed Consumption Section -->
+        <div class="user-card" style="margin-top: 24px;">
+          <h3 style="font-weight: 900; margin-bottom: 32px;">Detailed Consumption Analysis</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+            <div style="height: 300px; position: relative;">
+              <canvas id="userBarChart"></canvas>
+            </div>
+            <div style="height: 300px; position: relative;">
+              <canvas id="userDoughnutChart"></canvas>
+            </div>
+            <div style="height: 300px; position: relative;">
+              <canvas id="userRadarChart"></canvas>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- VIEW: HISTORY -->
@@ -470,15 +506,17 @@
             </thead>
             <tbody>
               <tr>
-                <td style="padding: 20px; border-bottom: 1px solid var(--border);">Jan 15, 2026</td>
-                <td style="padding: 20px; border-bottom: 1px solid var(--border);">Routine Safety Check</td>
-                <td style="padding: 20px; border-bottom: 1px solid var(--border);"><span
+                <td data-label="Date" style="padding: 20px; border-bottom: 1px solid var(--border);">Jan 15, 2026</td>
+                <td data-label="Event" style="padding: 20px; border-bottom: 1px solid var(--border);">Routine Safety
+                  Check</td>
+                <td data-label="Status" style="padding: 20px; border-bottom: 1px solid var(--border);"><span
                     style="color: var(--success); font-weight: 700;">Passed</span></td>
               </tr>
               <tr>
-                <td style="padding: 20px; border-bottom: 1px solid var(--border);">Jan 10, 2026</td>
-                <td style="padding: 20px; border-bottom: 1px solid var(--border);">Bill Payment ($142.50)</td>
-                <td style="padding: 20px; border-bottom: 1px solid var(--border);"><span
+                <td data-label="Date" style="padding: 20px; border-bottom: 1px solid var(--border);">Jan 10, 2026</td>
+                <td data-label="Event" style="padding: 20px; border-bottom: 1px solid var(--border);">Bill Payment
+                  ($142.50)</td>
+                <td data-label="Status" style="padding: 20px; border-bottom: 1px solid var(--border);"><span
                     style="color: var(--text-muted); font-weight: 700;">Processed</span></td>
               </tr>
             </tbody>
@@ -652,6 +690,131 @@
           }
         }
       });
+
+      // Initialize Pie Chart
+      const ctxPie = document.getElementById('userPieChart');
+      if (ctxPie) {
+        new Chart(ctxPie, {
+          type: 'pie',
+          data: {
+            labels: ['Solar', 'Grid', 'Battery', 'Generator'],
+            datasets: [{
+              data: [45, 30, 20, 5],
+              backgroundColor: ['#f59e0b', '#2563eb', '#10b981', '#64748b'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'right',
+                labels: {
+                  color: textColor,
+                  font: { family: "'Inter', sans-serif" },
+                  padding: 20
+                }
+              }
+            }
+          }
+        });
+      }
+
+      // Bar Chart - Weekly Usage
+      const ctxBar = document.getElementById('userBarChart');
+      if (ctxBar) {
+        new Chart(ctxBar, {
+          type: 'bar',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+              label: 'Energy (kWh)',
+              data: [12, 19, 15, 22, 18, 10, 8],
+              backgroundColor: '#2563eb',
+              borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: isDark ? '#1e293b' : '#ffffff',
+                titleColor: isDark ? '#f1f5f9' : '#0f172a',
+                bodyColor: isDark ? '#94a3b8' : '#475569',
+                borderColor: gridColor,
+                borderWidth: 1
+              }
+            },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: textColor } },
+              y: { grid: { color: gridColor }, ticks: { color: textColor }, beginAtZero: true }
+            }
+          }
+        });
+      }
+
+      // Doughnut Chart - Device Usage
+      const ctxDoug = document.getElementById('userDoughnutChart');
+      if (ctxDoug) {
+        new Chart(ctxDoug, {
+          type: 'doughnut',
+          data: {
+            labels: ['HVAC', 'Lighting', 'Servers', 'EV Charging', 'Other'],
+            datasets: [{
+              data: [35, 20, 25, 15, 5],
+              backgroundColor: ['#ef4444', '#f59e0b', '#2563eb', '#10b981', '#64748b'],
+              borderWidth: 0
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: window.innerWidth < 768 ? 'bottom' : 'right',
+                labels: { color: textColor, font: { family: "'Inter', sans-serif" } }
+              }
+            }
+          }
+        });
+      }
+
+      // Radar Chart - System Health
+      const ctxRadar = document.getElementById('userRadarChart');
+      if (ctxRadar) {
+        new Chart(ctxRadar, {
+          type: 'radar',
+          data: {
+            labels: ['Battery', 'Grid Conn', 'Solar Eff', 'Backup', 'Stability'],
+            datasets: [{
+              label: 'Health Score',
+              data: [90, 95, 85, 100, 92],
+              backgroundColor: 'rgba(16, 185, 129, 0.2)',
+              borderColor: '#10b981',
+              pointBackgroundColor: '#10b981'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                grid: { color: gridColor },
+                angleLines: { color: gridColor },
+                pointLabels: { color: textColor, font: { size: 12, family: "'Inter', sans-serif" } },
+                suggestedMin: 0,
+                suggestedMax: 100
+              }
+            },
+            plugins: {
+              legend: { display: false }
+            }
+          }
+        });
+      }
     }
   </script>
 

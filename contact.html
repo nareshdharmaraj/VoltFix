@@ -209,7 +209,13 @@
             style="display: block; font-size: 0.75rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Mission
             Category</label>
           <select
-            style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; appearance: none; background: var(--bg-main); color: var(--text-main);">
+            style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; background: var(--bg-main); color: var(--text-main);">
+            <option value="" disabled selected>Select Category...</option>
+            <option value="deployment">Deployment Support</option>
+            <option value="diagnostics">System Diagnostics</option>
+            <option value="hardware">Hardware Acquisition</option>
+            <option value="consultation">Strategic Consultation</option>
+            <option value="emergency">Emergency Response</option>
           </select>
         </div>
         <div style="grid-column: span 1;">
@@ -217,7 +223,13 @@
             style="display: block; font-size: 0.75rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Clearance
             Level</label>
           <select
-            style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; appearance: none; background: var(--bg-main); color: var(--text-main);">
+            style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-weight: 600; background: var(--bg-main); color: var(--text-main);">
+            <option value="" disabled selected>Select Level...</option>
+            <option value="l1">Level 1: Public</option>
+            <option value="l2">Level 2: Internal Restricted</option>
+            <option value="l3">Level 3: Confidential</option>
+            <option value="l4">Level 4: Top Secret</option>
+            <option value="l5">Level 5: Eyes Only</option>
           </select>
         </div>
         <div style="grid-column: span 2;">

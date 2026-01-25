@@ -515,6 +515,36 @@ header.scrolled .nav-container {
   flex: 1;
   justify-content: center;
   white-space: nowrap;
+  transition: gap 0.3s ease;
+}
+
+@media (max-width: 1400px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .logo {
+    margin-inline-end: 16px;
+    padding-inline-end: 16px;
+  }
+
+  .nav-tools {
+    gap: 10px;
+  }
+
+  .nav-container {
+    padding: 0 2% !important;
+  }
+}
+
+@media (max-width: 1320px) {
+  .logo span {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
 }
 
 .nav-links a {
@@ -2135,7 +2165,7 @@ footer {
 }
 
 /* Hero Section Mobile Override */
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
 
   /* Fix Header Logo&Nav Layout */
   .container.nav-container {
@@ -2156,7 +2186,7 @@ footer {
 
 
 /* Mobile Hero Fixes */
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
   .responsive-hero-grid {
     grid-template-columns: 1fr !important;
     gap: 60px !important;
@@ -2193,7 +2223,7 @@ footer {
 
 
 /* Mobile Omni-Fix-Ultimate Optimize */
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
 
   /* Fix section padding */
   .hero-section {
@@ -2258,7 +2288,7 @@ footer {
   cursor: pointer;
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
 
   /* Reset the previous column layout fix */
   .container.nav-container {
@@ -2345,7 +2375,7 @@ footer {
 
 
 /* ULTIMATE Mobile Fix-Aggressive Overrides */
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
 
   /* Make body not overflow */
   html,
@@ -2409,7 +2439,7 @@ footer {
 
 
 /* Mobile Header&Navigation-FINAL FIX */
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
   header {
     display: block !important;
     position: fixed !important;
@@ -2569,7 +2599,7 @@ footer {
 
 
 /* Fix Scrolling on Mobile-Allow Vertical Scroll */
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
   html {
     overflow-x: hidden !important;
     overflow-y: auto !important;
@@ -2729,15 +2759,10 @@ header {
     font-size: 0.65rem !important;
   }
 
-  /* Stack tables or grids that might overflow */
-  table,
-  thead,
-  tbody,
-  th,
-  td,
-  tr {
-    display: block !important;
-    width: 100% !important;
+  /* Stack grids that might overflow */
+  .responsive-grid-4,
+  .dashboard-metrics-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -2997,239 +3022,266 @@ header {
     font-size: 1rem !important;
   }
 }
+
 /* User Dashboard Mobile Optimization */
 @media (max-width: 900px) {
-    .dashboard-metrics-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-    }
-    .dashboard-split-grid {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
-    }
-    .user-card {
-        padding: 24px !important;
-    }
-    .main-content {
-        padding: 30px 20px !important;
-    }
-    /* Stack activity items vertically on very small screens */
-    .activity-item {
-        flex-direction: column;
-        align-items: flex-start !important;
-        gap: 12px !important;
-    }
-    .activity-item > div:last-child {
-        width: 100%;
-        text-align: left !important;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+  .dashboard-metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .dashboard-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .user-card {
+    padding: 24px !important;
+  }
+
+  .main-content {
+    padding: 30px 20px !important;
+  }
+
+  /* Stack activity items vertically on very small screens */
+  .activity-item {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .activity-item>div:last-child {
+    width: 100%;
+    text-align: left !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 /* Mobile Table Alignment Fix */
 @media (max-width: 768px) {
-    .data-table thead {
-        display: none;
-    }
-    .data-table, .data-table tbody, .data-table tr, .data-table td {
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .data-table tr {
-        margin-bottom: 24px;
-        background: var(--bg-surface);
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 16px;
-    }
-    .data-table td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border);
-        text-align: right;
-    }
-    .data-table td:last-child {
-        border-bottom: none;
-    }
-    .data-table td::before {
-        content: attr(data-label);
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        text-align: left;
-        margin-right: 16px;
-    }
-    /* Specific styling for the content within cells to align properly */
-    .data-table td span {
-        text-align: right;
-    }
+  .data-table thead {
+    display: none !important;
+  }
+
+  .data-table,
+  .data-table tbody,
+  .data-table tr,
+  .data-table td {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .data-table tr {
+    margin-bottom: 24px !important;
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    transform: none !important;
+    /* Disable hover transform on mobile */
+  }
+
+  .data-table td {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid var(--border) !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+    text-align: right !important;
+    min-height: 44px;
+  }
+
+  .data-table td:last-child {
+    border-bottom: none !important;
+  }
+
+  .data-table td::before {
+    content: attr(data-label);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-align: left;
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
+
+  /* Specific styling for the content within cells to align properly */
+  .data-table td>* {
+    text-align: right !important;
+    font-weight: 600;
+  }
 }
 
 /* Fix for Nav Tools (Icons) inside Mobile Menu */
 @media (max-width: 900px) {
-    .nav-links .nav-tools {
-        position: static !important;
-        transform: none !important;
-        inset: auto !important;
-        display: flex !important;
-        justify-content: center !important;
-        width: 100% !important;
-        margin-top: 16px !important;
-        padding-bottom: 24px !important;
-        background: transparent !important;
-        order: 100; /* Ensure it stays at the bottom */
-    }
+  .nav-links .nav-tools {
+    position: static !important;
+    transform: none !important;
+    inset: auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 16px !important;
+    padding-bottom: 24px !important;
+    background: transparent !important;
+    order: 100;
+    /* Ensure it stays at the bottom */
+  }
 
-    /* Adjust the Login button to be distinct if needed */
-    .nav-links .btn-primary {
-        margin-top: auto !important; /* Push to bottom if flex spacing allows */
-        text-align: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-    }
+  /* Adjust the Login button to be distinct if needed */
+  .nav-links .btn-primary {
+    margin-top: auto !important;
+    /* Push to bottom if flex spacing allows */
+    text-align: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
 }
 
 /* Sidebar Link Styling Fix for Admin/User */
 .sidebar-links a {
-    display: flex;
-    align-items: center;
-    padding: 14px 18px;
-    border-radius: 12px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--text-muted);
-    transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: var(--transition-base);
 }
 
 .sidebar-links a.active {
-    background: var(--accent);
-    color: white;
-    box-shadow: 0 4px 12px var(--accent-glow);
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 12px var(--accent-glow);
 }
 
 .sidebar-links a:hover:not(.active) {
-    color: var(--primary);
-    background: rgba(37,99,235,0.05);
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.05);
 }
 
 .sidebar-links a i {
-    width: 24px;
-    font-size: 1.25rem;
-    margin-right: 12px;
-    text-align: center;
+  width: 24px;
+  font-size: 1.25rem;
+  margin-right: 12px;
+  text-align: center;
 }
 
 
 /* Dashboard Sidebar Responsive Styles */
 @media (max-width: 1024px) {
-    .dashboard-container {
-        display: block !important; /* Stack for mobile */
-    }
+  .dashboard-container {
+    display: block !important;
+    /* Stack for mobile */
+  }
 
-    .sidebar {
-        position: fixed !important;
-        top: 90px !important;
-        left: 0 !important;
-        height: calc(100vh - 90px) !important;
-        z-index: 1000 !important;
-        transform: translateX(-100%);
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        width: 280px !important;
-        box-shadow: var(--shadow-xl);
-    }
+  .sidebar {
+    position: fixed !important;
+    top: 90px !important;
+    left: 0 !important;
+    height: calc(100vh - 90px) !important;
+    z-index: 1000 !important;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 280px !important;
+    box-shadow: var(--shadow-xl);
+  }
 
-    .sidebar.active {
-        transform: translateX(0);
-    }
+  .sidebar.active {
+    transform: translateX(0);
+  }
 
-    .sidebar-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.5);
-        z-index: 999;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(4px);
-    }
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+  }
 
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
 
-    .sidebar-toggle {
-        display: inline-flex !important;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 24px;
-        padding: 8px 16px;
-        background: var(--bg-surface);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        color: var(--text-main);
-        font-weight: 700;
-        cursor: pointer;
-    }
+  .sidebar-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-weight: 700;
+    cursor: pointer;
+  }
 }
 
 @media (min-width: 1025px) {
-    .sidebar-toggle {
-        display: none !important;
-    }
-    .sidebar-overlay {
-        display: none !important;
-    }
+  .sidebar-toggle {
+    display: none !important;
+  }
+
+  .sidebar-overlay {
+    display: none !important;
+  }
 }
 
 
 /* Dashboard View Switching */
 .dashboard-view {
-    display: none;
-    animation: fadeScale 0.3s ease-out;
+  display: none;
+  animation: fadeScale 0.3s ease-out;
 }
 
 .dashboard-view.active {
-    display: block;
+  display: block;
 }
 
 @keyframes fadeScale {
-    from {
-        opacity: 0;
-        transform: scale(0.98);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 
 /* Dashboard Header Responsive Alignment */
 @media (max-width: 768px) {
-    .dashboard-header {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 24px !important;
-    }
-    
-    .dashboard-header > div:last-child {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
+  .dashboard-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 24px !important;
+  }
 
-    .dashboard-header .btn {
-        width: 100%;
-        justify-content: center;
-        margin-left: 0 !important;
-    }
+  .dashboard-header>div:last-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .dashboard-header .btn {
+    width: 100%;
+    justify-content: center;
+    margin-left: 0 !important;
+  }
 }
-
